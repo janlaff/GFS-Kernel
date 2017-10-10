@@ -11,16 +11,30 @@ stage_two:
 	int 0x12 ; Query low memory size
 	jc low_mem_error ; Exit on error
 
+	; Check id enough space is free
+	cmp ax, STAGE_TWO_BUFFER_SIZE
+	jl insufficent_mem_error
+
 done:
 	jmp $
 	
-low_mem_error:
-	mov si, low_mem_error_str
+error:
 	call bios_print
 	jmp done
 
+low_mem_error:
+	mov si, low_mem_error_str
+	jmp error
+
+insufficent_mem_error:
+	mov si, insufficent_mem_error_str
+	jmp error
+
 low_mem_error_str:
 	db "Failed to get low memory", 13, 10, 0
+
+insufficent_mem_error_str:
+	db "Not enough memory available", 13, 10, 0
 
 magic:
 	times (512 * STAGE_TWO_SECTOR_COUNT)-($-$$) db 0
