@@ -12,8 +12,11 @@ stage_two:
 	jc low_mem_error ; Exit on error
 
 	; Check id enough space is free
-	cmp ax, STAGE_TWO_BUFFER_SIZE
+	cmp ax, KERNEL_PRELOAD_SIZE
 	jl insufficent_mem_error
+
+	;mov ax, 0xE820
+	;int 0x15
 
 done:
 	jmp $
