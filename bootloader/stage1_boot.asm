@@ -27,6 +27,7 @@ stage_one:
 	sti ; Enable interrupts
 
 	; Reset floppy disk
+	xor ah, ah
 	int 0x13
 
 	; Read STAGE_TWO_SECTOR_COUNT sectors from floppy
