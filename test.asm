@@ -1,5 +1,7 @@
 [BITS 16]
 
+%include "stagex_boot.inc"
+
 stage_two:
     mov si, msg
     call bios_print
