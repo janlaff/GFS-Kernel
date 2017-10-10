@@ -4,4 +4,7 @@ all: $(SUBDIRS)
 $(SUBDIRS):
 	$(MAKE) -C $@
 
-.PHONY: all $(SUBDIRS)
+.PHONY: all $(SUBDIRS) clean
+
+clean:
+	$(MAKE) -C $(SUBDIRS) clean
