@@ -24,6 +24,7 @@ Sector size: 512 Bytes
 | ... | ... | ... | ...            |
 | 79  | 1   | 18  | (unused)       |
 
+=> Kernel size: 576 KiB
 
 ## Bootloader
 
