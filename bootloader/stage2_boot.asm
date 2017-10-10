@@ -2,7 +2,7 @@
 
 jmp stage_two
 
-%include "boot.inc"
+%include "constants.inc"
 %include "bios_print.inc"
 
 stage_two:

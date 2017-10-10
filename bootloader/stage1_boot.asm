@@ -2,7 +2,7 @@
 
 jmp boot
 
-%include "boot.inc"
+%include "constants.inc"
 %include "bios_print.inc"
 
 boot:
