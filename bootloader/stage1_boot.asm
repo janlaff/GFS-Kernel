@@ -39,6 +39,7 @@ stage_one:
 	int 0x13
 
 	; Check for errors
+	clc ; Clear carry flag
 	mov ah, 0x01
 	int 0x13
 	jc error ; Exit on error
