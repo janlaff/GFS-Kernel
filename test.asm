@@ -1,22 +1,15 @@
 [BITS 16]
 
+jmp stage_two
+
 %include "stagex_boot.inc"
+%include "bios_print.inc"
 
 stage_two:
     mov si, msg
     call bios_print
 
-    jmp $
-
-bios_print:
-    lodsb
-    or al, al
-    jz bios_done
-    mov ah, 0x0E
-    int 0x10
-    jmp bios_print
-bios_done:
-    ret
+    jmp $ ; Hang forever
 
 msg:
     db "Hello world", 13, 10, 0
