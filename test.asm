@@ -6,13 +6,13 @@ jmp stage_two
 %include "bios_print.inc"
 
 stage_two:
-    mov si, msg
-    call bios_print
+	mov si, msg
+	call bios_print
 
-    jmp $ ; Hang forever
+	jmp $ ; Hang forever
 
 msg:
-    db "Hello world", 13, 10, 0
+	db "Hello world", 13, 10, 0
 
 magic:
-    times 1024-($-$$) db 0
+	times 1024-($-$$) db 0
