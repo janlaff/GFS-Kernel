@@ -2,7 +2,7 @@
 
 jmp boot
 
-%include "stagex_boot.inc"
+%include "boot.inc"
 %include "bios_print.inc"
 
 boot:
@@ -20,9 +20,9 @@ stage_one:
 	cli ; Disable interrupts
 
 	; Setup stack
-	mov ax, STAGE_ONE_STACK_SEGMENT_ADDR
+	mov ax, STACK_SEGMENT_ADDR
 	mov ss, ax
-	mov sp, STAGE_ONE_STACK_PTR_ADDR
+	mov sp, STACK_POINTER_ADDR
 
 	sti ; Enable interrupts
 
